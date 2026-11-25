@@ -16,7 +16,7 @@ import unicodedata
 from functools import cached_property
 from pathlib import Path
 
-__version__ = "2.1.0"
+__version__ = "2.1.1"
 __all__ = ["KnowledgeBase", "normalize_pinyin", "__version__"]
 
 _TONE_MARKS = {"̄": 1, "́": 2, "̌": 3, "̀": 4}

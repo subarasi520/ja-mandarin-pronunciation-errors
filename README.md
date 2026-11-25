@@ -1,136 +1,154 @@
-# Mandarin pronunciation errors of native Japanese speakers: a knowledge base
+# 日语母语者普通话发音偏误知识库
 
-[中文](README.zh-CN.md) · [日本語](README.ja.md) · Version 2.1.0 · **Non-commercial license: research and non-profit teaching** ([LICENSE](LICENSE))
+[English](README.en.md) · [日本語](README.ja.md) · 版本 2.1.1 · **非商业许可：研究和非营利教学免费使用，商用请联系**（[LICENSE](LICENSE)）
 
-A structured, evidence-graded summary of what published studies say about the systematic errors native
-Japanese speakers make when pronouncing Mandarin Chinese.
+教过日本学生的老师都见过这些情况：“家”读成「チャー」，sh 听着像 x，上声读着读着成了阳平。
+这方面的研究其实不少，但散在实验语音学和汉语教学两个领域，说法不统一，哪条结论证据扎实、哪条只是经验，很难一眼看出来。
 
-- **Error Coding Dictionary (ECD)**: 31 error types in four dimensions (initials, finals, tones, prosody).
-  Each entry has a stable code (e.g. `INIT-001`), the target sound and the error (pinyin and IPA), the
-  proposed cause, where it occurs, whether it concerns production or perception, an **evidence grade
-  A–D**, an evidence summary and its sources.
-- **Error Mapping Table (EMT)**: the dictionary mapped onto every Mandarin syllable: 410 toneless and
-  1,295 toned syllables, plus a separate layer for the neutral tone.
-- Built from 23 studies, each checked against the original text. 16 of the 31 types are supported by at
-  least two independent empirical studies (grade A); 9 rest on teaching observation or inference
-  (grades C and D) and should be treated as hypotheses.
+这个知识库把已发表的研究整理成两张表：
 
-## 30-second start
+- **《错误编码字典》（ECD）**：日本学习者普通话发音的 31 类偏误，分声母、韵母、声调、语流节律四个方面。
+  每类偏误写明：该发什么音、学生实际怎么发、为什么会这样、在哪些音节里出现、是“发不准”还是“听不出”，
+  以及**证据有多可靠（A、B、C、D 四级）**、依据哪几篇研究。
+- **《错误映射表》（EMT）**：把字典落实到普通话的**每一个音节**上。查“书 shū”，就能看到日本学生在这个音节上可能出现的偏误和各自的证据等级。
+  共 1295 个带调音节、410 个不带调音节，轻声另列一张表。
 
-**Just the data.** Download [`data/ecd.csv`](data/ecd.csv) and [`data/emt_toned.csv`](data/emt_toned.csv)
-and open them in a spreadsheet, R or pandas. JSON versions with the same content are next to them.
+依据的是 23 项研究，每一项都对照原文核对过。31 类中，**16 类有两项以上相互独立的实证研究一致支持（A 级）**；
+9 类目前只有教学观察或推断（C、D 级），应当看作有待检验的说法。
 
-**Python** (3.10+, no dependencies; `[text]` adds `pypinyin` for looking up Chinese characters):
+---
+
+## 一、不写程序，用 Excel 查
+
+1. 下载这两个文件（点开后，在页面右上方点下载按钮，图标是一个向下的箭头）：
+   - [`data/excel/错误映射表_EMT.xlsx`](data/excel/错误映射表_EMT.xlsx)：按音节查
+   - [`data/excel/错误编码字典_ECD.xlsx`](data/excel/错误编码字典_ECD.xlsx)：看每类偏误的详细说明和依据
+
+   也可以在仓库首页点绿色的 **Code** 按钮 → **Download ZIP**，把所有文件一次下载下来。
+2. 用 Excel 打开“错误映射表”，在“带调音节”这一页，点“音节”列标题上的筛选箭头，输入拼音加声调数字，比如“书”输入 shu1，“女”输入 nv3（ü 写成 v）。
+   常用字也可以在“例字”列里直接搜，但每个音节只列了 4 个常用字；想按任意汉字查，用第四节的 Python 工具。
+
+**例：查“书”**
+
+| 音节 | 拼音 | 例字 | 可能的偏误 | 编码与证据等级 |
+|---|---|---|---|---|
+| shu1 | shū | 书输殊叔 | 翘舌音：舌尖易翘得不够，发音部位前移（sh 常被听成 x）；听辨时 zh、ch、sh 与 j、q、x 难以分辨；u 易读成日语「う」（舌位偏前，圆唇不足）；阴平：起点易不够高、后段下滑 | INIT-001 A；INIT-008 A；FINA-011 A；TONE-002 A |
+
+意思是：日本学生读“书”时，文献里报告过四种可能的问题，四种都有充分的证据（A 级）。
+想知道 INIT-001 的依据，打开“错误编码字典”，找编码 INIT-001 这一行，看“证据摘要”和“文献”两列。
+
+**几个写法上的约定**
+
+- “音节”列用数字表示声调：jia1＝jiā，nv3＝nǚ（ü 写成 v）；“拼音”列是带调号的写法，可以直接用。
+- “例字”是读这个音的常用字，方便认音节，不代表只有这几个字。
+- **粉色的行**含 D 级条目（推断或存疑），用的时候当作“可能有、待验证”看待。
+- 有些偏误不落在单个音节上，表里不逐音节列出：调域整体偏窄、双音节声调组合、语流节律的 4 条和儿化。它们在“使用说明”页里另作说明，详细内容见字典。
+
+## 二、一条偏误是怎么描写的
+
+以字典第一条为例：
+
+| 栏目 | 内容 |
+|---|---|
+| 编码 | INIT-001（INIT＝声母，FINA＝韵母，TONE＝声调，PROS＝语流节律；编码固定不变） |
+| 名称 | 翘舌音舌尖上翘不足（日：そり舌音のそり不足） |
+| 目标音 | zh、ch、sh、r |
+| 偏误表现 | 舌尖翘得不够，发音部位前移；母语者多听成舌面音（sh 听成 x），少数听成平舌音 |
+| 出现环境 | zh、ch、sh、r 声母的全部音节 |
+| 层面 | 产出（“发不准”；“听不出”的问题另列为 INIT-008） |
+| 证据等级 | A |
+| 证据摘要（节选） | 布目孝子（2021）：8 名学习者的发音由 3 名母语者判断，sh 的正确率为 46%，明显低于 x（91%）和 s（83%）；sh 被听错的 56 例中，50 例被听成 x |
+
+**证据等级**
+
+| 等级 | 说的是什么 |
+|---|---|
+| A 实证充分 | 至少两项以日本学习者为对象、相互独立的实验研究，结论一致 |
+| B 实证有限 | 只有一项实验研究 |
+| C 教学观察 | 只有老师的教学观察或教材分析，还没有实验数据 |
+| D 推断或存疑 | 只是根据日汉语音差别推出来的，或者已有研究提出了反证 |
+
+“实验研究”包括声学测量、听辨实验，以及请母语者给学习者的发音打分。评级只算以日本学习者为对象的研究；
+同一位研究者用同一批数据发表的几篇论文，只算一项。
+
+## 三、可以拿来做什么
+
+### 教学（非营利教学可以免费使用）
+
+- **备课**：把一课的生词查一遍，事先知道哪些音节要多听、多纠。比如一课里 zh、ch、sh 和 j、q、x 的字多，就值得安排对比练习。
+- **定重点**：证据最充分的偏误集中在声调、送气、翘舌音与舌面音、u、e、ü 和鼻韵尾；C、D 级的条目可以在课上留心观察，不必专门操练。
+- **选练习方式**：字典的“层面”一栏标明问题在“发不准”还是“听不出”。比如塞音的送气，问题主要在发音，日本学生听辨送气与否却很少出错，练习就以开口为主；翘舌音和舌面音听、说都容易混，可以先练听辨。
+- **编讲义和测验**：按偏误挑最小对立的音节（如 zhī—jī 知—鸡、shū—xū 书—需），或者把容易混的音节编成听写。
+- **教研和教师培训**：给新老师一份有出处的“日本学生发音难点清单”，比凭经验口传更可靠。
+
+### 研究（非商业研究可以免费使用）
+
+- **找题目**：9 个 C、D 级条目正是“还没有人用数据证明过”的地方，适合做硕士、博士论文或课题。语流节律 4 条虽有实证，但每条只有一两项研究，也值得补。
+- **检验和补充**：用学习者的录音语料逐条检验，给每类偏误补上“多常见”——映射表现在只说“可能出现”，没有频率。
+- **设计实验**：按偏误挑实验材料，比如同时涉及 INIT-001 和 INIT-008 的音节，或者用来做听辨实验的最小对立对。
+- **统一编码、便于比较**：分析学习者语料时用这套编码给偏误归类，不同研究的结果就能放在一起比。
+- **研究教材**：统计一本教材的词汇涉及哪些等级的偏误，比较不同教材的发音编排。
+- **比较不同母语背景**：字段和评级办法可以照搬到韩语、英语等母语背景的学习者上；有的偏误（阳平与上声相混）已知不是日本学习者特有的。
+- **计算语言学方面**：编码和音节映射都是结构化数据，程序可以直接读取。
+
+### 商业开发（需要另行授权，欢迎联系）
+
+如果您在做下面这类产品，这个知识库可以省去从零整理文献的工作。商用需要另签授权，联系方式见文末。
+
+- **教材和出版**：给日本学习者编发音单元、安排教学顺序、设计练习和测验题，按偏误等级决定详略。
+- **语言学校和在线课程**：面向日本学员的发音课程设计、分级诊断用的测试题、教师培训材料。
+- **学习类应用**：按课文生词给出“这个字日本学生容易错在哪”的提示、生成针对性的易混音练习和听辨题。
+- **语音技术**：为日语母语用户准备有针对性的评测集和测试用例，按音节检查产品是否覆盖了常见偏误。
+
+## 四、会写程序的话
+
+数据有 JSON 和 CSV 两种格式，在 [`data/`](data/) 目录里，任何语言都能读。Python 有现成的查询工具（Python 3.10 以上）：
 
 ```bash
 pip install "ja-mandarin-errors[text] @ git+https://github.com/subarasi520/ja-mandarin-pronunciation-errors"
-ja-mandarin-errors jiā 书 INIT-001 --lang en
-```
-
-```text
-jia1
-  INIT-003  B  Unaspirated affricate: tends to be produced as a Japanese voiced sound (ざ, じ)
-  INIT-008  A  zh, ch, sh are hard to tell apart from j, q, x by ear
-  FINA-006  B  Medial i tends to merge into the initial and disappear (as in Japanese palatalized syllables, e.g. jia pronounced like「チャー」)
-  TONE-002  A  Tone 1: tends to start too low and fall at the end
-书 shu1
-  INIT-001  A  Retroflex: the tongue tip tends to be raised too little and the place moves forward (sh is often heard as x)
-  ...
+ja-mandarin-errors 书包 jiā INIT-001
 ```
 
 ```python
 from ja_mandarin_errors import KnowledgeBase
 
 kb = KnowledgeBase()
-kb.syllable("nǚ")                    # also "nv3", "nü3", "nu:3"; no tone = toneless table; tone 5 = neutral
-kb.entry("TONE-001")                 # full dictionary entry
-kb.entries(grade="A", category="tone")
-kb.text("你好")                      # per character (needs pypinyin)
-kb.reference("邓丹 2014")             # full citation of a source
+kb.syllable("nǚ")                     # 也可写 "nv3"；不带调查基础音节；5 声＝轻声
+kb.text("你好")                       # 按汉字逐字查（需要 pypinyin）
+kb.entry("TONE-001")                  # 字典条目全文
+kb.entries(grade="A", category="tone")  # 按等级、维度筛选
 ```
 
-**Any other language.** Read the JSON directly, for example in JavaScript:
+JavaScript 等其他语言可以直接读线上的 JSON：
 
 ```js
 const url = "https://raw.githubusercontent.com/subarasi520/ja-mandarin-pronunciation-errors/main/data/emt_toned.json";
 const emt = await (await fetch(url)).json();
-console.log(emt.syllables["jia1"].entries);   // [{code, grade, note_zh, note_en}, ...]
+console.log(emt.syllables["shu1"].entries);   // [{code, grade, note_zh, note_en}, ...]
 ```
 
-## What is in `data/`
-
-| File | Content |
+| 文件 | 内容 |
 |---|---|
-| `ecd.json` / `ecd.csv` | 31 entries, all fields; grade definitions; field notes |
-| `emt_toned.json` / `emt_toned.csv` | 1,295 toned syllables (`jia1`, `nv3` …) → entries with grade and a short note (Chinese and English) |
-| `emt_base.json` / `emt_base.csv` | 410 toneless syllables → initial and final entries only |
-| `neutral_tone_layer.json` / `.csv` | 9 contexts where the neutral tone occurs (particles, suffixes, reduplication …) |
-| `references.json` | the 23 cited works |
-| `phonetic_guide.csv` | the IPA symbols used |
+| `data/excel/*.xlsx` | 给人看的 Excel 版（中文表头、带筛选） |
+| `data/ecd.json`、`ecd.csv` | 字典 31 条的全部字段、等级定义、字段说明 |
+| `data/emt_toned.json`、`emt_toned.csv` | 1295 个带调音节：拼音、例字、对应条目、等级、中英文说明 |
+| `data/emt_base.json`、`emt_base.csv` | 410 个不带调音节，只列声母、韵母方面的条目 |
+| `data/neutral_tone_layer.*` | 轻声出现的 9 类环境 |
+| `data/references.json` | 23 项文献的完整书目 |
+| `data/phonetic_guide.csv` | 表中用到的国际音标说明 |
 
-Syllable keys are pinyin with a tone number; ü is written `v`. m, n and ng are interjection syllables and
-carry no entries. Seven entries that act on all tones or above the syllable (`TONE-006`, `TONE-008`,
-`PROS-001`–`004`, and `FINA-008` for erhua) are not listed per syllable; see `not_listed_per_syllable`
-in the EMT JSON.
+## 五、使用前请注意
 
-**Evidence grades**
+- 映射表说的是某个音节上**可能**出现哪些偏误，**不是出现的频率**。一个音节列的条目多，不等于它最难。
+- 内容全部来自已发表的研究和教学观察，没有采集新的录音。多数研究的被试不到 30 人；文献收集没有按系统综述的规程进行，可能有遗漏。
+- C、D 级条目（Excel 里的粉色行）是待检验的说法。
+- 音节按单字的本调查，不考虑变调；按汉字查询时，多音字可能注错音。
+- 有的证据来自没学过汉语的人，有的偏误随学习时间减轻，有的只出现在发音而不在听辨里。字典的“层面”和“证据摘要”两栏写明了这些情况。
+- 名称有中、英、日三种文字；说明有中、英两种；证据摘要、成因、出现环境只有中文。几种文字不一致时以中文为准。
 
-| Grade | Meaning |
-|---|---|
-| A | At least two independent empirical studies of native Japanese speakers agree |
-| B | One empirical study of native Japanese speakers |
-| C | Teaching observation or textbook analysis only |
-| D | Contrastive inference only, or contradicted by existing studies |
+## 六、引用、许可与联系
 
-Only studies of native Japanese speakers count toward the grade; several papers reporting the same data
-count once. Empirical means acoustic or articulatory measurement, a perception experiment, or production
-rated by native listeners.
-
-**Languages.** Names are given in Chinese, English and Japanese; descriptions and the per-syllable notes
-in Chinese and English. Evidence summaries, causes and contexts are in Chinese. Where the two differ, the
-Chinese text is authoritative.
-
-## Ideas for use
-
-- **Design experiments.** Pick stimuli where well-supported errors meet, for example syllables with
-  `INIT-001` and `INIT-008` (zh/ch/sh vs j/q/x), or minimal pairs for a perception test.
-- **Test the open hypotheses.** The nine C and D entries say exactly what has not been shown yet; a
-  learner speech corpus can confirm or reject them one by one, and add frequencies the table does not have.
-- **Code learner data the same way.** Using the ECD codes as error categories makes results from different
-  studies comparable.
-- **Study teaching materials.** Count which graded errors the vocabulary of a course or textbook touches
-  and compare materials on that basis.
-- **Compare first languages.** The fields and grading rules carry over to learners with other first
-  languages; some errors here (tone 2 / tone 3 confusion) are known not to be specific to Japanese
-  speakers.
-- **Computational studies of L2 speech.** Codes and the syllable mapping are machine-readable and can be
-  used as structured prior knowledge.
-- **Non-profit teaching.** Look up the syllables of a lesson's new words and see which well-supported
-  errors to listen for; grade C and D entries are worth watching rather than drilling.
-
-## Read before use
-
-- The table shows which errors **may** occur on a syllable, not how often. A long list for a syllable does
-  not mean it is the hardest one.
-- Everything comes from published studies and teaching observations; no new speech data were collected.
-  Most studies had fewer than 30 participants, and the literature search was not a formal systematic review.
-- Grade C and D entries (marked `has_grade_d` in the mapping) are hypotheses.
-- Syllables are looked up in their citation tone; tone sandhi is not applied. `kb.text()` relies on
-  `pypinyin`, which can pick the wrong reading of a polyphonic character.
-- Some evidence concerns people who have never learned Chinese, some errors fade with study, and some
-  show up in production but not in perception. The `modality` field and the evidence summaries say which.
-
-## How to cite
-
-See [CITATION.cff](CITATION.cff) (GitHub shows a “Cite this repository” button).
-
-## License and contact
-
-Free for **non-commercial research and non-profit teaching** only. Commercial use, use by companies, and
-use in commercial courses, textbooks or apps need a separate written license; see [LICENSE](LICENSE).
-
-**Contact:** open an issue in this repository titled “License inquiry”, or reach the maintainer through
-the GitHub profile [@subarasi520](https://github.com/subarasi520).
-
-Corrections are welcome: if an entry misreads a study, please open an issue with the page or table of the
-original.
+- **引用**：见 [CITATION.cff](CITATION.cff)；GitHub 页面右侧的 “Cite this repository” 可以直接生成引用格式。
+- **许可**：非商业研究和非营利教学免费使用，使用时请注明出处。商业用途（包括企业使用，以及用于收费的课程、教材、应用）需要另行书面授权，详见 [LICENSE](LICENSE)。
+- **联系**：商用洽谈或其他问题，请在本仓库开一个标题为 “License inquiry” 的 issue，或通过 GitHub 主页 [@subarasi520](https://github.com/subarasi520) 联系。
+- **指正**：如果某一条对原文的理解有误，欢迎开 issue，并注明原文的页码或表格。

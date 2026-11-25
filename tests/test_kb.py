@@ -64,6 +64,16 @@ class TestMapping(unittest.TestCase):
         self.assertTrue(KB.syllable("nv3")["has_grade_d"])
         self.assertEqual(codes("hao3"), ["INIT-005", "TONE-001", "TONE-004"])
 
+    def test_pinyin_and_examples(self):
+        r = KB.syllable("jia1")
+        self.assertEqual(r["pinyin"], "jiā")
+        self.assertIn("家", r["example_chars"])
+        self.assertEqual(KB.syllable("lve4")["pinyin"], "lüè")
+
+    def test_excel_files_exist(self):
+        for name in ("错误编码字典_ECD.xlsx", "错误映射表_EMT.xlsx"):
+            self.assertTrue((ROOT / "data" / "excel" / name).stat().st_size > 10000, name)
+
     def test_r_note_kept_whole(self):
         notes = [i["note_zh"] for i in KB.syllable("ran2")["entries"] if i["code"] == "INIT-007"]
         self.assertEqual(len(notes), 1)
