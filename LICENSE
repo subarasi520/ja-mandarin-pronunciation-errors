@@ -23,7 +23,10 @@ documentation, and the code ("the Work").
       for a fee, supported by advertising, or otherwise produces revenue;
    b. use by or for a for-profit organization, including product research and development;
    c. use in commercial courses, textbooks, applications or other commercial educational products;
-   d. selling, sublicensing or relicensing the Work or any part of it.
+   d. selling, sublicensing or relicensing the Work or any part of it;
+   e. using the Work, in whole or in part, to train, fine-tune or evaluate an AI model, or as a retrieval
+      source (for example retrieval-augmented generation), for a commercial product or service, or for a
+      model or service offered to others for a fee.
    To ask for a commercial or other license, contact the Licensor (see "Contact" in README.md).
 
 4. Attribution. Any use, copy or publication based on the Work must cite it as shown in CITATION.cff
@@ -60,7 +63,9 @@ documentation, and the code ("the Work").
    a. 用于任何商业用途，包括用于出售、授权、收费、靠广告支撑或以其他方式产生收入的产品或服务；
    b. 由营利性组织使用或为其使用，包括产品研发；
    c. 用于商业课程、教材、应用程序或其他商业教育产品；
-   d. 出售、再许可或以其他许可重新发布本作品或其任何部分。
+   d. 出售、再许可或以其他许可重新发布本作品或其任何部分；
+   e. 将本作品的全部或部分用于训练、微调或评测人工智能模型，或作为检索来源（例如检索增强生成），
+      而该模型或服务属于商业产品、商业服务，或向他人收费提供。
    如需商业授权或其他授权，请联系许可方（见 README 的“联系方式”）。
 
 4. 署名。基于本作品的任何使用、复制或发表，须按 CITATION.cff 的方式引用，并保留本许可和版权声明。

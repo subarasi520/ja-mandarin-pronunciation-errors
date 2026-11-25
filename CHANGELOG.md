@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.2 (2026-11-25)
+
+Knowledge unchanged. Each JSON file now records `dataset_id`; `references.json` is an object with `dataset_id` and
+`references`. README: repository layout, copyright, uses with large language models.
+
+知识内容不变。各 JSON 文件加入 `dataset_id`；`references.json` 改为包含 `dataset_id` 和 `references` 两项的对象。README 增加仓库结构、版权声明和大语言模型方面的用法。
+
 ## 2.1.1 (2026-11-25)
 
 The knowledge itself is unchanged (dictionary version 2.1). Added for easier use: Excel workbooks with Chinese

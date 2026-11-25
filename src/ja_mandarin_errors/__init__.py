@@ -16,7 +16,7 @@ import unicodedata
 from functools import cached_property
 from pathlib import Path
 
-__version__ = "2.1.1"
+__version__ = "2.1.2"
 __all__ = ["KnowledgeBase", "normalize_pinyin", "__version__"]
 
 _TONE_MARKS = {"̄": 1, "́": 2, "̌": 3, "̀": 4}
@@ -87,11 +87,15 @@ class KnowledgeBase:
 
     @cached_property
     def references(self) -> list:
-        return self._load("references.json")
+        return self._load("references.json")["references"]
 
     @cached_property
     def _by_code(self) -> dict:
         return {e["error_id"]: e for e in self.ecd["entries"]}
+
+    @property
+    def dataset_id(self) -> str:
+        return self.ecd["dataset_id"]
 
     @property
     def version(self) -> str:

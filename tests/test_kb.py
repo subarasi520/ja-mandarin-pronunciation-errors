@@ -39,6 +39,9 @@ class TestDictionary(unittest.TestCase):
         self.assertEqual(len(KB.entries(category="tone")), 8)
         self.assertEqual(len(KB.entries(grade="CD")), 9)
 
+    def test_dataset_id(self):
+        self.assertTrue(KB.dataset_id.startswith("ja-mandarin-errors-"))
+
     def test_entry(self):
         e = KB.entry("init-001")
         self.assertEqual(e["evidence_strength"], "A")

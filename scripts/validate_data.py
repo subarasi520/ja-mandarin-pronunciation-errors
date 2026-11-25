@@ -22,7 +22,10 @@ def check(cond, msg):
 
 
 ecd = json.loads((DATA / "ecd.json").read_text(encoding="utf-8"))
-refs = {r["short"] for r in json.loads((DATA / "references.json").read_text(encoding="utf-8"))}
+refs = {r["short"] for r in json.loads((DATA / "references.json").read_text(encoding="utf-8"))["references"]}
+ids = {json.loads((DATA / f).read_text(encoding="utf-8")).get("dataset_id")
+       for f in ("ecd.json", "emt_toned.json", "emt_base.json", "neutral_tone_layer.json", "references.json")}
+check(len(ids) == 1 and None not in ids, f"dataset_id differs between files: {ids}")
 entries = ecd["entries"]
 grade = {e["error_id"]: e["evidence_strength"] for e in entries}
 check(len(entries) == 31 and len(grade) == 31, "ECD should have 31 unique entries")

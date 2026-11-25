@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this knowledge base, please cite it as below."
 title: "Mandarin pronunciation errors of native Japanese speakers: Error Coding Dictionary (ECD) and Error Mapping Table (EMT)"
-version: 2.1.1
+version: 2.1.2
 date-released: 2026-11-25
 license: LicenseRef-Research-and-NonProfit-Teaching-NonCommercial-1.0
 repository-code: "https://github.com/subarasi520/ja-mandarin-pronunciation-errors"

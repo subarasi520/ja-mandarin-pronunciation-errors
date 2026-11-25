@@ -1,6 +1,6 @@
 # Mandarin pronunciation errors of native Japanese speakers: a knowledge base
 
-[中文](README.md) · [日本語](README.ja.md) · Version 2.1.1 · **Non-commercial license: research and non-profit teaching** ([LICENSE](LICENSE))
+[中文](README.md) · [日本語](README.ja.md) · Version 2.1.2 · **Non-commercial license: research and non-profit teaching** ([LICENSE](LICENSE))
 
 A structured, evidence-graded summary of what published studies say about the systematic errors native
 Japanese speakers make when pronouncing Mandarin Chinese.
@@ -152,6 +152,9 @@ Chinese text is authoritative.
 - Language schools and online courses: course design, placement and diagnostic tests, teacher training.
 - Learning apps: per-word hints on likely errors, targeted minimal-pair and listening exercises.
 - Speech technology: test sets and test cases tailored to native Japanese users, checked syllable by syllable.
+- Large language models (LLMs): a knowledge source for retrieval-augmented generation (RAG), or material for
+  fine-tuning and evaluation, so that a model answers Mandarin pronunciation questions with sources and evidence
+  grades instead of guessing.
 
 ## Read before use
 
@@ -173,8 +176,9 @@ See [CITATION.cff](CITATION.cff) (GitHub shows a “Cite this repository” butt
 
 **Copyright**: the knowledge base (the data in `data/`) and the documentation and code in this repository are the personal property of the researchers of this study.
 
-Free for **non-commercial research and non-profit teaching** only. Commercial use, use by companies, and
-use in commercial courses, textbooks or apps need a separate written license; see [LICENSE](LICENSE).
+Free for **non-commercial research and non-profit teaching** only. Commercial use, use by companies,
+use in commercial courses, textbooks or apps, and training, fine-tuning or retrieval for commercial AI models
+need a separate written license; see [LICENSE](LICENSE).
 
 **Contact:** open an issue in this repository titled “License inquiry”, or reach the maintainer through
 the GitHub profile [@subarasi520](https://github.com/subarasi520).
