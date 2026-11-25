@@ -15,6 +15,30 @@ Japanese speakers make when pronouncing Mandarin Chinese.
   least two independent empirical studies (grade A); 9 rest on teaching observation or inference
   (grades C and D) and should be treated as hypotheses.
 
+## Repository layout
+
+**The knowledge base itself is in [`data/`](data/).** Everything else is the query tool, documentation and license.
+
+```text
+data/                         the knowledge base
+  excel/                      Excel workbooks with the same content, mainly for viewing (Chinese headers, filters)
+    错误编码字典_ECD.xlsx       error dictionary: all fields, grade definitions, references, IPA guide
+    错误映射表_EMT.xlsx         mapping table: toned and toneless syllables, neutral tone, notes
+  ecd.json / ecd.csv          dictionary: 31 error types, 22 fields each
+  emt_toned.json / .csv       mapping table: 1,295 toned syllables
+  emt_base.json / .csv        mapping table: 410 toneless syllables (initials and finals only)
+  neutral_tone_layer.*        9 contexts of the neutral tone
+  references.json             the 23 cited works
+  phonetic_guide.csv          IPA symbols used
+src/ja_mandarin_errors/       Python query tool (by pinyin, Chinese characters or code)
+scripts/validate_data.py      consistency check of the data
+tests/                        automated tests
+LICENSE, CITATION.cff, CHANGELOG.md, pyproject.toml
+```
+
+The Excel workbooks and the JSON/CSV files are the same knowledge base in different formats: the workbooks are for
+reading and looking things up by eye, the JSON and CSV files are for programs.
+
 ## 30-second start
 
 **No programming.** Download [`data/excel/错误映射表_EMT.xlsx`](data/excel/错误映射表_EMT.xlsx) (look up a
@@ -146,6 +170,8 @@ Chinese text is authoritative.
 See [CITATION.cff](CITATION.cff) (GitHub shows a “Cite this repository” button).
 
 ## License and contact
+
+**Copyright**: the knowledge base (the data in `data/`) and the documentation and code in this repository are the personal property of the researchers of this study.
 
 Free for **non-commercial research and non-profit teaching** only. Commercial use, use by companies, and
 use in commercial courses, textbooks or apps need a separate written license; see [LICENSE](LICENSE).
