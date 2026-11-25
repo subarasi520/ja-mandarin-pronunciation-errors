@@ -15,7 +15,7 @@
 **只要数据**：下载 [`data/ecd.csv`](data/ecd.csv) 和 [`data/emt_toned.csv`](data/emt_toned.csv)，
 用 Excel、R 或 pandas 打开即可；同目录下有内容相同的 JSON。
 
-**Python**（3.9 以上，无依赖；`[text]` 会装上 `pypinyin`，用于按汉字查询）：
+**Python**（3.10 以上，无依赖；`[text]` 会装上 `pypinyin`，用于按汉字查询）：
 
 ```bash
 pip install "ja-mandarin-errors[text] @ git+https://github.com/subarasi520/ja-mandarin-pronunciation-errors"

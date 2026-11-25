@@ -20,7 +20,7 @@ Japanese speakers make when pronouncing Mandarin Chinese.
 **Just the data.** Download [`data/ecd.csv`](data/ecd.csv) and [`data/emt_toned.csv`](data/emt_toned.csv)
 and open them in a spreadsheet, R or pandas. JSON versions with the same content are next to them.
 
-**Python** (3.9+, no dependencies; `[text]` adds `pypinyin` for looking up Chinese characters):
+**Python** (3.10+, no dependencies; `[text]` adds `pypinyin` for looking up Chinese characters):
 
 ```bash
 pip install "ja-mandarin-errors[text] @ git+https://github.com/subarasi520/ja-mandarin-pronunciation-errors"

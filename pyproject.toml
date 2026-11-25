@@ -7,7 +7,7 @@ name = "ja-mandarin-errors"
 version = "2.1.0"
 description = "Knowledge base of systematic Mandarin pronunciation errors of native Japanese speakers: 31 error types with evidence grades, mapped onto every Mandarin syllable."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { file = "LICENSE" }
 keywords = ["Mandarin", "Chinese", "Japanese", "L2 pronunciation", "second language acquisition", "phonetics", "error analysis"]
 classifiers = [

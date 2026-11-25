@@ -13,7 +13,7 @@
 ## すぐに使う
 
 - **データだけ**：[`data/ecd.csv`](data/ecd.csv) と [`data/emt_toned.csv`](data/emt_toned.csv) を Excel などで開けます。同じ内容の JSON もあります。
-- **Python**（3.9 以上）：
+- **Python**（3.10 以上）：
 
 ```bash
 pip install "ja-mandarin-errors[text] @ git+https://github.com/subarasi520/ja-mandarin-pronunciation-errors"
