@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ja-mandarin-errors"
+version = "2.1.0"
+description = "Knowledge base of systematic Mandarin pronunciation errors of native Japanese speakers: 31 error types with evidence grades, mapped onto every Mandarin syllable."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+keywords = ["Mandarin", "Chinese", "Japanese", "L2 pronunciation", "second language acquisition", "phonetics", "error analysis"]
+classifiers = [
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Science/Research",
+  "Topic :: Text Processing :: Linguistic",
+  "Natural Language :: Chinese (Simplified)",
+]
+dependencies = []
+
+[project.optional-dependencies]
+text = ["pypinyin>=0.50"]
+
+[project.scripts]
+ja-mandarin-errors = "ja_mandarin_errors.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ja_mandarin_errors"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"data" = "ja_mandarin_errors/data"

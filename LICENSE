@@ -1,0 +1,74 @@
+Research and Non-Profit Teaching License (non-commercial), version 1.0
+
+Copyright (c) 2026 the authors listed in CITATION.cff ("the Licensor").
+
+This license covers everything in this repository: the knowledge base (the files in data/), the
+documentation, and the code ("the Work").
+
+1. Permission. You may use, copy and modify the Work, and share it and your modifications, free of
+   charge, worldwide, but only for non-commercial research and non-profit teaching.
+
+2. Non-commercial research means scholarly or scientific investigation that is not carried out for
+   commercial advantage or monetary compensation, by individuals or by universities, research institutes
+   and other non-profit organizations. Publishing the results (papers, theses, presentations) is part of
+   such research.
+
+   Non-profit teaching means teaching at schools, universities and other educational institutions, or by
+   individual teachers, for which no fee is charged for the use of the Work itself and which is not part
+   of a commercial course or product.
+
+3. Not permitted without a separate written license from the Licensor:
+   a. any commercial use, including use in or for a product or service that is sold, licensed, offered
+      for a fee, supported by advertising, or otherwise produces revenue;
+   b. use by or for a for-profit organization, including product research and development;
+   c. use in commercial courses, textbooks, applications or other commercial educational products;
+   d. selling, sublicensing or relicensing the Work or any part of it.
+   To ask for a commercial or other license, contact the Licensor (see "Contact" in README.md).
+
+4. Attribution. Any use, copy or publication based on the Work must cite it as shown in CITATION.cff
+   and keep this license and the copyright notice.
+
+5. Modified versions. If you share a modified version, mark it clearly as modified, state what you
+   changed, and share it under this same license.
+
+6. No warranty. The Work is provided "as is", without warranty of any kind. It summarizes published
+   studies and teaching observations; entries graded C or D are hypotheses that have not been tested.
+   The Licensor is not liable for any claim, damage or other liability arising from the Work or its use.
+
+7. Termination. Any use that breaks these terms ends the permissions granted here.
+
+8. Language. This license is written in English with a Chinese translation below. If they differ, the
+   English text prevails.
+
+--------------------------------------------------------------------------------------------------------
+
+研究与非营利教学许可（非商业），第 1.0 版
+
+版权所有 (c) 2026 CITATION.cff 中所列作者（“许可方”）。
+
+本许可适用于本仓库的全部内容：知识库（data/ 中的文件）、文档和代码（“本作品”）。
+
+1. 许可。您可以免费、在全球范围内使用、复制、修改本作品，并分享本作品及其修改版本，但仅限用于非商业研究和非营利教学。
+
+2. 非商业研究，指个人或大学、研究机构及其他非营利组织进行的、不以商业利益或金钱报酬为目的的学术或科学研究。
+   发表研究成果（论文、学位论文、学术报告）属于这类研究的一部分。
+
+   非营利教学，指学校、大学等教育机构或教师个人进行的教学，不就本作品本身的使用收费，也不属于商业课程或商业产品。
+
+3. 未经许可方另行书面授权，不得：
+   a. 用于任何商业用途，包括用于出售、授权、收费、靠广告支撑或以其他方式产生收入的产品或服务；
+   b. 由营利性组织使用或为其使用，包括产品研发；
+   c. 用于商业课程、教材、应用程序或其他商业教育产品；
+   d. 出售、再许可或以其他许可重新发布本作品或其任何部分。
+   如需商业授权或其他授权，请联系许可方（见 README 的“联系方式”）。
+
+4. 署名。基于本作品的任何使用、复制或发表，须按 CITATION.cff 的方式引用，并保留本许可和版权声明。
+
+5. 修改版本。分享修改版本时，须明确标明已修改、说明改了什么，并以本许可发布。
+
+6. 不提供担保。本作品按“原样”提供，不附带任何形式的担保。本作品汇总的是已发表的研究和教学观察；
+   证据等级为 C、D 的条目是尚未检验的假设。许可方不对因本作品或其使用引起的任何索赔、损害或其他责任负责。
+
+7. 终止。违反本许可条款的使用，即终止本许可授予的权利。
+
+8. 语言。本许可以英文撰写，附中文译文；两者不一致时，以英文为准。
